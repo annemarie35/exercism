@@ -6,5 +6,3 @@ def two_fer(*name):
 
     return message
 
-
-
