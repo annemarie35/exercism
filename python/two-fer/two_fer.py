@@ -1,8 +1,5 @@
-def two_fer(*name):
-    message = 'One for you, one for me.'
-
+def two_fer(name=None):
     if name:
-        message = f'One for {name[0]}, one for me.'
+        return f'One for {name}, one for me.'
 
-    return message
-
+    return 'One for you, one for me.'
