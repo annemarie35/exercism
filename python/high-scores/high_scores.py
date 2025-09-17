@@ -11,9 +11,13 @@ class HighScores:
             if score > best:
                 best = score
         return best
+        # or
+        # return max(self.scores)
+        # or
+        # return self.personal_top_three()[0]
 
     def personal_top_three(self):
-        sorted_scores = sorted(self.scores, key = None, reverse = True)
+        sorted_scores = sorted(self.scores, reverse = True)
         top_three = sorted_scores[0:3]
         return top_three
 
