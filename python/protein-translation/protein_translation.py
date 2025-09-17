@@ -33,3 +33,34 @@ def proteins(strand):
         codon_end_position = codon_end_position + CODON_LENGTH
 
     return amino_acids_in_rna_sequence
+
+proteinTable = {
+    'AUG': 'Methionine',
+    'UUU': 'Phenylalanine',
+    'UUC': 'Phenylalanine',
+    'UUA': 'Leucine',
+    'UUG': 'Leucine',
+    'UCU': 'Serine',
+    'UCC': 'Serine',
+    'UCA': 'Serine',
+    'UCG': 'Serine',
+    'UAU': 'Tyrosine',
+    'UAC': 'Tyrosine',
+    'UGU': 'Cysteine',
+    'UGC': 'Cysteine',
+    'UGG': 'Tryptophan',
+    'UAA': 'STOP',
+    'UAG': 'STOP',
+    'UGA': 'STOP'
+}
+
+
+def alternative_solution_proteins(strand):
+    polypeptideList = []
+    codonList = [(strand[i:i+3]) for i in range(0, len(strand), 3)]
+    for codon in codonList:
+        if proteinTable.get(codon) == 'STOP':
+            return polypeptideList
+        else:
+            polypeptideList.append(proteinTable.get(codon))
+    return polypeptideList

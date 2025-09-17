@@ -5,3 +5,15 @@ Whole numbers including hexadecimal (hex()), octal (oct()) and binary (bin()) nu
 
 Python fully supports arithmetic between these different number types, and will convert narrower numbers to match their less narrow counterparts when used with the binary arithmetic operators (+, -, *, /, //, and %).
 https://exercism.org/tracks/python/concepts/numbers
+
+# Notes on exercices learning
+## Protein translations
+
+I still need to improve all the potential of `List comprehension` using range built-in function.
+Like in this [alternative solution](https://exercism.org/tracks/python/exercises/protein-translation/solutions/delamoe)
+
+```python
+strand = "UUU"
+codonList = [(strand[i:i+3]) for i in range(0, len(strand), 3)]
+```
+There is a video showing [11 Ways to Solve Protein Translation on Exercism](https://www.youtube.com/watch?v=i7SEtqVlWUU&t=33s)
