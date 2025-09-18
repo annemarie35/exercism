@@ -1,5 +1,6 @@
 def square(number):
     if number <= 0 or number > 64:
+    # if number not in range(1,65):
         raise ValueError("square must be between 1 and 64")
 
     return 2 ** (number - 1)
