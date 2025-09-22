@@ -22,7 +22,12 @@ def isosceles(sides):
         is_isocele = False
     else:
         is_isocele = sides[0] == sides[1] or sides[1] == sides[2] or sides[0] == sides[2]
+        # len(set(sides)) == 1
+        # the set build in function remove duplicates and transform list in a set so set([4,4,4]) will be {4}
     return is_isocele
 
 def scalene(sides):
     return not isosceles(sides) and is_a_triangle(sides)
+    # duplication using is_a_triangle here and inside isosceles function
+    # it can be solved by using validation function with an annotation before function declaration @is_a_triangle
+
