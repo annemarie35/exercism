@@ -37,3 +37,6 @@ def leap_year(year):
 [Performance deep dive](https://exercism.org/tracks/python/exercises/leap/articles/performance)
 Ternary is a little bit faster than using the if statement
 
+## Meltdown mitigation
+In Python, if, elif (a contraction of 'else and if') and else statements are used to control the flow of execution and make decisions in a program. 
+Unlike many other programming languages, Python versions 3.9 and below do not offer a formal case-switch statement, instead using multiple elif statements to serve a similar purpose.
