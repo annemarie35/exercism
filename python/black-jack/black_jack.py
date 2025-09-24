@@ -20,9 +20,14 @@ def value_of_card(card):
     if card in numerical_value:
         return int(card)
     elif card == 'A':
+        #  [R1705 no-else-return]  Code smell
         return 1
     elif card in face_cards:
         return 10
+
+    # if (card in 'JQK'): return 10 No need to create a list
+    # if (card == 'A'): return 1
+    # return int(card)
 
 
 def higher_card(card_one, card_two):
@@ -41,6 +46,10 @@ def higher_card(card_one, card_two):
         return card_one
     else:
         return card_two
+
+    # if (value_of_card(card_one) > value_of_card(card_two)): return card_one
+    # if (value_of_card(card_one) < value_of_card(card_two)): return card_two
+    # return (card_one, card_two)
 
 
 def value_of_ace(card_one, card_two):
@@ -63,7 +72,12 @@ def value_of_ace(card_one, card_two):
     if sum_cards_in_hand + highest_ace_value > bust_value:
         return 1
     else:
+        # [R1705 no-else-return]  ["Unnecessary "else" after "return"", "remove the "else" and de-indent the code inside it"] was reported by Pylint.
         return 11
+
+    # if (card_one == 'A' or card_two == 'A'): return 1 if there is an 'A' in hand, the value is 11 so new 'A' can only by '1' to keep under bust value
+    # return 11 if (value_of_card(card_one) + value_of_card(card_two) <= 10) else 1
+
 
 def is_blackjack(card_one, card_two):
     """Determine if the hand is a 'natural' or 'blackjack'.
@@ -75,15 +89,7 @@ def is_blackjack(card_one, card_two):
     2.  'A' (ace card) = 11 (if already in hand)
     3.  '2' - '10' = numerical value.
     """
-
-    face_cards = ['J', 'Q', 'K']
-
-    is_card_a_ten = lambda card: card in face_cards or card == '10'
-    is_card_an_ace = lambda card: card == 'A'
-
-
-    return (is_card_a_ten(card_one) and is_card_an_ace(card_two)) or (is_card_an_ace(card_one) and is_card_a_ten(card_two))
-
+    return (card_one == 'A' and value_of_card(card_two) == 10) or (card_two == 'A' and value_of_card(card_one) == 10)
 
 def can_split_pairs(card_one, card_two):
     """Determine if a player can split their hand into two hands.
