@@ -74,6 +74,7 @@ class PigLatinTest(unittest.TestCase):
         self.assertEqual(translate("yellow"), "ellowyay")
 
     def test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster(self):
+        # false assertion cause vowels are word + ay
         self.assertEqual(translate("rhythm"), "ythmrhay")
 
     def test_y_as_second_letter_in_two_letter_word(self):

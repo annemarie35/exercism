@@ -3,56 +3,43 @@ def translate(text):
 
     def translate_word(text):
         langage_suffixe = 'ay'
-        if text[0] in vowels or text[0:1] == 'xr' or text[0:1] == 'yr' or text[0:1] == 'yt' or text[0:1] == 'zr':
+        text_first_letter = text[0]
+        two_beginning_letters = text[0:2]
+        three_beginning_letters = text[0:3]
+
+        consonant_cluster_treated_like_vowels = ('xr', 'yr', 'yt', 'zr')
+
+        is_in_vowel_cluster = text_first_letter in vowels or two_beginning_letters in consonant_cluster_treated_like_vowels
+        is_in_consonant_cluster = text_first_letter not in vowels
+
+        if is_in_vowel_cluster:
             return text + langage_suffixe
 
-        is_in_consonant_cluster = text[0] not in vowels
-
         if is_in_consonant_cluster:
-            two_beginning_letters = text[0:2]
-            three_beginning_letters = text[0:3]
-
-            if three_beginning_letters == 'sch':
-                toto = text.index("sch") + len("sch")
-                return text[toto:] + 'sch' + langage_suffixe
-
-            if two_beginning_letters == 'ch':
-                toto = text.index("ch") + len("ch")
-                return text[toto:] + 'ch' + langage_suffixe
-
-            if two_beginning_letters == 'qu':
-                toto = text.index("qu") + len("qu")
-                return text[toto:] + 'qu' + langage_suffixe
-
-            if three_beginning_letters == 'thr':
-                toto = text.index("thr") + len("thr")
-                return text[toto:] + 'thr' + langage_suffixe
-
-            if two_beginning_letters == 'th':
-                toto = text.index("th") + len("th")
-                return text[toto:] + 'th' + langage_suffixe
+            consonant_clusters = ('sch', 'thr', 'ch', 'qu', 'th')
+            for consonant_cluster in consonant_clusters:
+                beginning_letters_to_check = two_beginning_letters  if len(consonant_cluster) == 2 else three_beginning_letters
+                if beginning_letters_to_check == consonant_cluster:
+                    cutting_index = text.index(consonant_cluster) + len(consonant_cluster)
+                    return text[cutting_index:] + consonant_cluster + langage_suffixe
 
             if two_beginning_letters == 'yt' or two_beginning_letters == 'xr':
+                # like wovels !
                 return text + langage_suffixe
 
-            first_letter = text[0]
+            if 'y' in text and text_first_letter != 'y':
+                y_letter_index = text.index("y")
+                # Can generate ValueError: substring not found so we check that there is 'y' in text before
+                letters_before_y = text[0:y_letter_index]
+                return text[y_letter_index:] + letters_before_y + langage_suffixe
 
-            if text[-1] == 'y' or text[1] == 'y':
-                tata = text[1:] + text[0] + langage_suffixe
-                return tata
-
-            if 'y' in text and text[0] != 'y':
-                toto = text.index("y")
-                letters_before_y = text[0:toto]
-                return text[toto:] + letters_before_y + langage_suffixe
-
-            return text[1:] + first_letter + langage_suffixe
+            return text[1:] + text_first_letter + langage_suffixe
 
     words = text.split()
     translated_phrase = ''
     for word in words:
-        lala = translate_word(word)
-        translated_phrase = translated_phrase + lala + ' '
+        translated_word = translate_word(word)
+        translated_phrase = translated_phrase + translated_word + ' '
 
 
     return translated_phrase.strip()
