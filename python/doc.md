@@ -46,3 +46,9 @@ Unlike many other programming languages, Python versions 3.9 and below do not of
 See others approaches [here](https://exercism.org/tracks/python/exercises/raindrops/dig_deeper) 
 If too many `if` statement, use a loop 
 For performance deep dive look at [here](https://exercism.org/tracks/python/exercises/raindrops/articles/performance)
+
+# Little Sister's Vocabulary
+[exercice url](https://exercism.org/tracks/python/exercises/little-sisters-vocab)
+A `str` in Python is an [immutable sequence](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str) of [Unicode code points](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme). These could include letters, diacritical marks, positioning characters, numbers, currency symbols, emoji, punctuation, space and line break characters, and more. Being immutable, a `str` object's value in memory doesn't change; methods that appear to modify a string return a new copy or instance of that `str object.
+
+Listen to the Fugees's Vocab song while coding (The acoustic version is da best!)
