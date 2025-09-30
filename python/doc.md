@@ -52,3 +52,11 @@ For performance deep dive look at [here](https://exercism.org/tracks/python/exer
 A `str` in Python is an [immutable sequence](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str) of [Unicode code points](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme). These could include letters, diacritical marks, positioning characters, numbers, currency symbols, emoji, punctuation, space and line break characters, and more. Being immutable, a `str` object's value in memory doesn't change; methods that appear to modify a string return a new copy or instance of that `str object.
 
 Listen to the Fugees's Vocab song while coding (The acoustic version is da best!)
+
+## Bob
+
+The nested if approach is fastest, but some may consider it a bit less readable than the unnested if statements. 
+The answer list approach is slowest, but some may prefer doing away with the chain of if statements. Since the difference between them is a few nanoseconds, which one is used may be a matter of stylistic preference.
+To compare the performance of the approaches, check out the [Performance article](https://exercism.org/tracks/python/exercises/bob/articles/performance).
+
+Listen to Bob James while coding, Nautilus could be a good first song.
