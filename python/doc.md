@@ -87,4 +87,15 @@ def is_isogram(phrase):
 
 ```
 
+# Reverse String
+[Dig deeper](https://exercism.org/tracks/python/exercises/reverse-string/dig_deeper)
 
+The fastest and most canonical by far is the reverse slice. Unless you are in an interview situation where you need to "show your work", or working with varied Unicode outside the ASCII range, a reverse slice is the easiest and most direct method of reversal.
+
+```python
+def reverse(text):
+  return text[::-1]
+```
+
+Another approach is [sequence slicing](https://exercism.org/tracks/python/exercises/reverse-string/approaches/sequence-slicing)
+[Additional approaches](https://exercism.org/tracks/python/exercises/reverse-string/approaches/additional-approaches) Recursivity alert ^^!
