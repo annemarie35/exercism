@@ -60,3 +60,9 @@ The answer list approach is slowest, but some may prefer doing away with the cha
 To compare the performance of the approaches, check out the [Performance article](https://exercism.org/tracks/python/exercises/bob/articles/performance).
 
 Listen to Bob James while coding, Nautilus could be a good first song.
+
+## Darts
+
+[Dig deeper](https://exercism.org/tracks/python/exercises/darts/dig_deeper)
+The key is to determine how far from the center the dart lands (by calculating sqrt(x2 + y2), or a variation) and then determine what scoring ring it falls into.
+> That was the rule T missed
