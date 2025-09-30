@@ -66,3 +66,25 @@ Listen to Bob James while coding, Nautilus could be a good first song.
 [Dig deeper](https://exercism.org/tracks/python/exercises/darts/dig_deeper)
 The key is to determine how far from the center the dart lands (by calculating sqrt(x2 + y2), or a variation) and then determine what scoring ring it falls into.
 > That was the rule T missed
+
+# Isogram
+[Dig deeper](https://exercism.org/tracks/python/exercises/isogram/dig_deeper)
+All four set approaches are idiomatic. The `replace` approach is the fastest.
+
+```python
+def is_isogram(phrase):
+    scrubbed = phrase.replace('-', '').replace(' ', '').lower()
+    return len(scrubbed) == len(set(scrubbed))
+```
+
+See the [performance article](https://exercism.org/tracks/python/exercises/isogram/articles/performance).
+
+Approach: scrub with a list comprehension
+```python
+def is_isogram(phrase):
+    scrubbed = [ltr.lower() for ltr in phrase if ltr.isalpha()]
+    return len(set(scrubbed)) == len(scrubbed)
+
+```
+
+
