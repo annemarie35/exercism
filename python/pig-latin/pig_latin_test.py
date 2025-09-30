@@ -47,9 +47,6 @@ class PigLatinTest(unittest.TestCase):
         self.assertEqual(translate("queen"), "eenquay")
 
     def test_word_beginning_with_qu_and_a_preceding_consonant(self):
-        self.assertEqual(translate("square"), "aresquay")
-
-    def test_word_beginning_with_qu_and_a_preceding_consonant(self):
         self.assertEqual(translate("quick"), "ickquay")
 
     def test_word_beginning_with_ch(self):
@@ -79,6 +76,9 @@ class PigLatinTest(unittest.TestCase):
 
     def test_y_as_second_letter_in_two_letter_word(self):
         self.assertEqual(translate("my"), "ymay")
+
+    def test_word_beginning_with_qu_and_a_preceding_consonant(self):
+        self.assertEqual(translate("square"), "aresquay")
 
     def test_a_whole_phrase(self):
         self.assertEqual(translate("quick fast run"), "ickquay astfay unray")
