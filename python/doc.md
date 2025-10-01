@@ -47,7 +47,7 @@ See others approaches [here](https://exercism.org/tracks/python/exercises/raindr
 If too many `if` statement, use a loop 
 For performance deep dive look at [here](https://exercism.org/tracks/python/exercises/raindrops/articles/performance)
 
-# Little Sister's Vocabulary
+## Little Sister's Vocabulary
 [exercice url](https://exercism.org/tracks/python/exercises/little-sisters-vocab)
 A `str` in Python is an [immutable sequence](https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str) of [Unicode code points](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme). These could include letters, diacritical marks, positioning characters, numbers, currency symbols, emoji, punctuation, space and line break characters, and more. Being immutable, a `str` object's value in memory doesn't change; methods that appear to modify a string return a new copy or instance of that `str object.
 
@@ -67,7 +67,7 @@ Listen to Bob James while coding, Nautilus could be a good first song.
 The key is to determine how far from the center the dart lands (by calculating sqrt(x2 + y2), or a variation) and then determine what scoring ring it falls into.
 > That was the rule T missed
 
-# Isogram
+## Isogram
 [Dig deeper](https://exercism.org/tracks/python/exercises/isogram/dig_deeper)
 All four set approaches are idiomatic. The `replace` approach is the fastest.
 
@@ -87,7 +87,7 @@ def is_isogram(phrase):
 
 ```
 
-# Reverse String
+## Reverse String
 [Dig deeper](https://exercism.org/tracks/python/exercises/reverse-string/dig_deeper)
 
 The fastest and most canonical by far is the reverse slice. Unless you are in an interview situation where you need to "show your work", or working with varied Unicode outside the ASCII range, a reverse slice is the easiest and most direct method of reversal.
@@ -99,3 +99,14 @@ def reverse(text):
 
 Another approach is [sequence slicing](https://exercism.org/tracks/python/exercises/reverse-string/approaches/sequence-slicing)
 [Additional approaches](https://exercism.org/tracks/python/exercises/reverse-string/approaches/additional-approaches) Recursivity alert ^^!
+
+## ISBN Verifier
+
+```python
+def is_valid(isbn):
+    nums = list(isbn.replace("-", ""))
+    if len(nums)!=10: return False
+    if nums[-1] == "X": nums[-1] = "10"
+    if not all([c.isdigit() for c in nums]): return False
+    return sum(int(x)*y for x,y in zip(nums, range(10, 0, -1)))%11 == 0
+```
