@@ -110,3 +110,14 @@ def is_valid(isbn):
     if not all([c.isdigit() for c in nums]): return False
     return sum(int(x)*y for x,y in zip(nums, range(10, 0, -1)))%11 == 0
 ```
+
+## Card games
+
+A [list](https://docs.python.org/3/library/stdtypes.html#list) is a mutable collection of items in **sequence**.
+They are an extremely flexible and useful data structure that many `built-in` methods and operations in Python produce as output. 
+Lists can hold reference to any (or multiple) data type(s) - including other lists or data structures such as [tuples](https://github.com/exercism/python/tree/main/concepts/tuples), [sets](https://github.com/exercism/python/tree/main/concepts/sets), or [dicts](https://github.com/exercism/python/tree/main/concepts/dicts). 
+Content can be iterated over using `for item in <list>` construct. If indexes are needed with the content, `for index, item in enumerate(<list>)` can be used.
+Elements within a `list` can be accessed via `0-based index` number from the left, or `-1-based index number from the right.
+Lists can be copied in whole or in part using slice notation or `<list>.copy()`.
+
+[Exercise page](https://exercism.org/tracks/python/exercises/card-games)
