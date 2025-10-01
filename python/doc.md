@@ -121,3 +121,24 @@ Elements within a `list` can be accessed via `0-based index` number from the lef
 Lists can be copied in whole or in part using slice notation or `<list>.copy()`.
 
 [Exercise page](https://exercism.org/tracks/python/exercises/card-games)
+
+## Rotational Cipher
+
+[Dig deeper](https://exercism.org/tracks/python/exercises/rotational-cipher/dig_deeper)
+
+```python
+chars = "abcdefghijklmnopqrstuvwxyz"
+
+
+def rotate(text, key):
+    newchars = chars[key:] + chars[:key]
+    trans = str.maketrans(chars + chars.upper(), newchars + newchars.upper())
+    return text.translate(trans)
+```
+
+[Str translate](https://exercism.org/tracks/python/exercises/rotational-cipher/approaches/str-translate)
+This approach uses the <str>.translate method. translate takes a translation table as an argument. 
+To create a translation table we use str.makestrans.
+
+I used the [alphabet approach](https://exercism.org/tracks/python/exercises/rotational-cipher/approaches/alphabet)
+There is also, [ASCII values](https://exercism.org/tracks/python/exercises/rotational-cipher/approaches/ascii-values) or [recursion](https://exercism.org/tracks/python/exercises/rotational-cipher/approaches/recursion) approach
