@@ -19,10 +19,17 @@ UNEQUAL = 'UNEQUAL'
 
 
 def is_contained(list_one, list_two):
-    for index in range(len(list_one) - len(list_two) + 1):
-        if not list_two or list_two == list_one[index: index + len(list_two)]:
+    list_1_lenghth = len(list_one)
+    list_2_length = len(list_two)
+    for index in range(list_1_lenghth - list_2_length + 1):
+        if not list_two or list_two == list_one[index: index + list_2_length]:
             return True
     return False
+    # Alternative
+    # Approach: list manipulation
+    # n1 = len(list_one)
+    # n2 = len(list_two)
+    # return any(list_two[i:i + n1] == list_one for i in range(n2 - n1 + 1))
 
 def sublist(list_one, list_two):
     if list_one == list_two:
@@ -33,3 +40,4 @@ def sublist(list_one, list_two):
         return SUBLIST
     else:
         return UNEQUAL
+    # https://exercism.org/tracks/python/exercises/sublist/approaches/using-strings
