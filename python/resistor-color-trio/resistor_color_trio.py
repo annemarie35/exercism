@@ -12,21 +12,18 @@ RESISTORS_COLOR = {
 }
 
 def label(colors):
-    result = RESISTORS_COLOR[colors[0]] + RESISTORS_COLOR[colors[1]] + (int(RESISTORS_COLOR[colors[2]]) * '0')
-    resultLinted = str(int(result))
+    ohms = int(RESISTORS_COLOR[colors[0]] + RESISTORS_COLOR[colors[1]] + (int(RESISTORS_COLOR[colors[2]]) * '0'))
+    prefix = ''
 
-    if result == '00':
-        return '0 ohms'
+    if ohms > 1_000_000_000:
+        prefix = 'giga'
+        ohms = ohms // 1_000_000_000
+    if ohms > 1_000_000:
+        prefix = 'mega'
+        ohms = ohms // 1_000_000
+    if ohms > 1_000:
+        prefix = 'kilo'
+        ohms = ohms // 1_000
 
-    if len(result) <= 3:
-        return resultLinted + ' ohms'
-
-    if 4 <= len(result) <= 6:
-        return str((int(result)//1000)) + ' kiloohms'
-
-    if 6 <= len(result) <= 9:
-        return str((int(result)//1000000)) + ' megaohms'
-
-    if len(result) > 9:
-        return str((int(result)//1000000000)) + ' gigaohms'
+    return f"{ohms} {prefix}ohms"
 
